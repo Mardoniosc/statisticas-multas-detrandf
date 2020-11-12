@@ -1,1 +1,30 @@
-<p>portipodemulta works!</p>
+<div class="row">
+  <div class="container">
+    <div class="md">
+      <div class="col-md-4">
+        <h3>
+          <label for="ano">Selecione o ano para visualizar o gráfico: </label>
+        </h3>
+      </div>
+      <div class="col-md-3">
+        <select class="form-control" #anoSelecionado (click)="loadDataSetChar(anoSelecionado.value)" name="ano" id="ano">
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="chart-wrapper">
+  <canvas baseChart
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType">
+  </canvas>
+</div>
+
