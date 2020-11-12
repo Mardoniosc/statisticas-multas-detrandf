@@ -1,21 +1,24 @@
-<h2>Gráfico Multas Anuais</h2>
-<div class="chart-wrapper">
-  <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
-    [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
-  </canvas>
-</div>
+<div class="wrapper wrapper-content animated fadeInRight">
 
-<H2>Totais de multas por ano</H2>
-<div class="row">
-  <div class="container">
-    <h3>
-      Total 2018: <strong>{{ multasTotal2018[0]['total_ANO'] | number }}</strong>
-    </h3>
-    <h3>
-      Total 2019: <strong>{{ multasTotal2019[0]['total_ANO'] | number }}</strong>
-    </h3>
-    <h3>
-      Total 2020: <strong>{{ multasTotal2020[0]['total_ANO'] | number }} *</strong>(Até ultima atualização em setembro)
-    </h3>
+  <h2>Gráfico Multas Anuais</h2>
+  <div class="chart-wrapper">
+    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+      [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+
+  <H2>Totais de multas por ano</H2>
+  <div class="row">
+    <div class="container">
+      <h3>
+        Total 2018: <strong>{{ multasTotal2018[0]['total_ANO'] | number }}</strong>
+      </h3>
+      <h3>
+        Total 2019: <strong>{{ multasTotal2019[0]['total_ANO'] | number }}</strong>
+      </h3>
+      <h3>
+        Total 2020: <strong>{{ multasTotal2020[0]['total_ANO'] | number }} *</strong>(Até ultima atualização em setembro)
+      </h3>
+    </div>
   </div>
 </div>

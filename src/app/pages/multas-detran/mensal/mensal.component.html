@@ -1,1 +1,32 @@
-<p>mensal works!</p>
+<div class="wrapper wrapper-content animated fadeInRight">
+
+  <br>
+  <div class="row">
+    <div class="container">
+      <div class="md">
+        <div class="col-md-3">
+          <h3>
+            <label for="tipo" >Selecione um tipo de multa</label>
+          </h3>
+        </div>
+        <div class="col-md-3">
+          <select #tipoMulta (click)="atualizaDadosTipoMulta(tipoMulta.value)" name="tipo" id="tipo" class="form-control">
+            <option *ngFor="let item of tiposMultas" [value]="item">{{ item }}</option>
+
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Gráfico Multas Detalhe mensal</h2>
+  <div class="chart-wrapper">
+    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+      [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+  <br>
+  <h2>
+    Total no ano: {{ total | number}}
+  </h2>
+</div>
