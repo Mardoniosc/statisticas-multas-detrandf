@@ -19,15 +19,20 @@
     </div>
   </div>
   <br>
-  <div class="chart-wrapper">
-    <canvas baseChart
-      [datasets]="barChartData"
-      [labels]="barChartLabels"
-      [options]="barChartOptions"
-      [plugins]="barChartPlugins"
-      [legend]="barChartLegend"
-      [chartType]="barChartType">
-    </canvas>
+  <h2>Multas por tipo</h2>
+  <div class="container">
+    <div class="col-md-9">
+      <div class="chart-wrapper">
+        <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType">
+        </canvas>
+      </div>
+    </div>
   </div>
 
 </div>

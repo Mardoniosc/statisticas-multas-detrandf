@@ -40,8 +40,6 @@ export class PortipodemultaComponent implements OnInit {
   multasTotal2019: Multa[] = [];
   multasTotal2020: Multa[] = [];
 
-  tipoMulta2018: TipoMulta[] = [];
-
   constructor(private multaService: MultasService) {}
 
   ngOnInit(): void {

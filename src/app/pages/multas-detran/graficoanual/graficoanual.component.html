@@ -1,10 +1,14 @@
 <div class="wrapper wrapper-content animated fadeInRight">
 
   <h2>Gráfico Multas Anuais</h2>
-  <div class="chart-wrapper">
-    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
-      [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
-    </canvas>
+  <div class="container">
+    <div class="col-md-9">
+      <div class="chart-wrapper">
+        <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+          [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+        </canvas>
+      </div>
+    </div>
   </div>
 
   <H2>Totais de multas por ano</H2>
