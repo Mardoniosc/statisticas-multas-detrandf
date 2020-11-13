@@ -37,8 +37,7 @@ export class GraficoanualComponent implements OnInit {
     responsive: true,
   };
 
-  lineChartColors: Color[] = [
-  ];
+  lineChartColors: Color[] = [];
 
   lineChartLegend = true;
   lineChartPlugins = [];
@@ -51,6 +50,10 @@ export class GraficoanualComponent implements OnInit {
   multasTotal2018: Multa[] = [];
   multasTotal2019: Multa[] = [];
   multasTotal2020: Multa[] = [];
+
+  totalAno2018: number = 0;
+  totalAno2019: number = 0;
+  totalAno2020: number = 0;
   constructor(private multaService: MultasService) {}
 
   ngOnInit(): void {
@@ -80,14 +83,29 @@ export class GraficoanualComponent implements OnInit {
             case 2018:
               this.multasTotal2018 = multas;
               this.setDadosGrafico(ano, this.multasTotal2018);
+              this.multasTotal2018.forEach((x) => {
+                if (x.tipo === 'TOTAL') {
+                  this.totalAno2018 = Number(x.total_ANO);
+                }
+              });
               break;
             case 2019:
               this.multasTotal2019 = multas;
               this.setDadosGrafico(ano, this.multasTotal2019);
+              this.multasTotal2019.forEach((x) => {
+                if (x.tipo === 'TOTAL') {
+                  this.totalAno2019 = Number(x.total_ANO);
+                }
+              });
               break;
             case 2020:
               this.multasTotal2020 = multas;
               this.setDadosGrafico(ano, this.multasTotal2020);
+              this.multasTotal2020.forEach((x) => {
+                if (x.tipo === 'TOTAL') {
+                  this.totalAno2020 = Number(x.total_ANO);
+                }
+              });
               break;
             default:
               break;
