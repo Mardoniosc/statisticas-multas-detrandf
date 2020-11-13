@@ -4,13 +4,25 @@
   <div class="row">
     <div class="container">
       <div class="md">
-        <div class="col-md-3">
+        <div class="col-md-4">
+          <h3>
+            <label for="ano">Selecione o ano para visualizar o gráfico: </label>
+          </h3>
+        </div>
+        <div class="col-md-2">
+          <select class="form-control" #anoSelecionado (click)="loadDataSetChar(anoSelecionado.value)" name="ano" id="ano">
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+          </select>
+        </div>
+        <div class="col-md-2">
           <h3>
             <label for="tipo" >Selecione um tipo de multa</label>
           </h3>
         </div>
         <div class="col-md-3">
-          <select #tipoMulta (click)="atualizaDadosTipoMulta(tipoMulta.value)" name="tipo" id="tipo" class="form-control">
+          <select #tipoMulta (click)="atualizaDadosTipoMulta(tipoMulta.value, ano)" name="tipo" id="tipo" class="form-control">
             <option *ngFor="let item of tiposMultas" [value]="item">{{ item }}</option>
 
           </select>

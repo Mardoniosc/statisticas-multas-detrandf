@@ -58,6 +58,8 @@ export class MensalComponent implements OnInit {
   multasTotal2018: Multa[] = [];
   multasTotal2019: Multa[] = [];
   multasTotal2020: Multa[] = [];
+
+  ano: number = 2018;
   constructor(private multaService: MultasService) {}
 
   ngOnInit(): void {
@@ -74,7 +76,7 @@ export class MensalComponent implements OnInit {
             case 2018:
               this.multasTotal2018 = multas;
               this.loadTiposMultaAno(2018);
-              this.atualizaDadosTipoMulta('ALCOOLEMIA');
+              this.atualizaDadosTipoMulta('ALCOOLEMIA', 2018);
               break;
             case 2019:
               this.multasTotal2019 = multas;
@@ -91,10 +93,24 @@ export class MensalComponent implements OnInit {
     });
   }
 
-  atualizaDadosTipoMulta(tipoMulta: String) {
-    const dataSetTipo = this.multasTotal2018.find(
-      (multa) => multa.tipo === tipoMulta
-    );
+  atualizaDadosTipoMulta(tipoMulta: String, ano: number) {
+    let aux: Multa[] = [];
+    ano = Number(ano);
+    switch (ano) {
+      case 2018:
+        aux = this.multasTotal2018;
+        break;
+      case 2019:
+        aux = this.multasTotal2019;
+        break;
+      case 2020:
+        aux = this.multasTotal2020;
+        break;
+      default:
+        break;
+    }
+
+    const dataSetTipo = aux.find((multa) => multa.tipo === tipoMulta);
 
     this.total = Number(dataSetTipo.total_ANO);
 
@@ -127,12 +143,15 @@ export class MensalComponent implements OnInit {
     switch (ano) {
       case 2018:
         aux = this.multasTotal2018;
+        this.atualizaDadosTipoMulta('ALCOOLEMIA', this.ano);
         break;
       case 2019:
         aux = this.multasTotal2019;
+        this.atualizaDadosTipoMulta('ALCOOLEMIA', this.ano);
         break;
       case 2020:
         aux = this.multasTotal2020;
+        this.atualizaDadosTipoMulta('Alcoolemia', this.ano);
         break;
       default:
         break;
@@ -142,5 +161,11 @@ export class MensalComponent implements OnInit {
         this.tiposMultas.push(multa.tipo);
       }
     });
+  }
+
+  loadDataSetChar(ano: number) {
+    const anoNumber = Number(ano);
+    this.ano = anoNumber;
+    this.loadTiposMultaAno(anoNumber);
   }
 }
